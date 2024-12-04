@@ -1,1 +1,6 @@
 **/*.txt
+
+# compiled files
+**/*.o
+**/*.hi
+**/*
