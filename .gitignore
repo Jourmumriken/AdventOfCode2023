@@ -1,6 +1,16 @@
-**/*.txt
+# hacky way to ignore extentionless binaries -_-
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
 
 # compiled files
 **/*.o
 **/*.hi
-**/*
+
+# Inputs
+**/*.txt
