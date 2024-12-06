@@ -1,6 +1,5 @@
 import Prelude
 
-
 -- format the input into a list of reports (who are themselves lists of integers)
 formatContent :: String -> [[Int]]
 formatContent c = map formatLine $ lines c
@@ -30,6 +29,9 @@ reportCheck1 vs@(a:b:bs)
 reportCheck2 :: [Int] -> Bool
 reportCheck2 vs@(a:b:bs) = undefined
 
+calculate :: ([Int] -> Bool) -> [[Int]] -> Int
+calculate fun = foldr ((\x -> if x then (1 +) else (0 +)) . fun) 0
+
 -- sum up the entire input using functions above
 calculate1 :: [[Int]] -> Int
 calculate1 = calculate reportCheck1
@@ -37,16 +39,12 @@ calculate1 = calculate reportCheck1
 calculate2 :: [[Int]] -> Int
 calculate2 = calculate reportCheck2
 
-calculate :: ([Int] -> Bool) -> [[Int]] -> Int
-calculate fun = foldr ((\x -> if x then (1 +) else (0 +)) . fun) 0
-
 main :: IO()
 main = do
     putStrLn "Give me a file path:"
     filePath <- getLine
     contents <- readFile filePath
     print $ calculate1 $ formatContent contents
-
 
 --for debuging
 main' :: IO()
