@@ -1,7 +1,6 @@
 import Prelude
 import Data.List (sort)
 import GHC.IO.FD (openFile)
-import GHC.IO.Handle.Types (Handle__)
 
 
 -- a bit dumb but its nice to make sure I dont use the wrong function (like lines) :)
